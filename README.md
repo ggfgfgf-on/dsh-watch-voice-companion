@@ -6,8 +6,12 @@ synthesis, playback, and the bounded serial queue.
 
 ## Install
 
+Not published to npm yet. Install from the repository:
+
 ```bash
-npm install dsh-watch-voice-companion
+npm install github:ggfgfgf-on/dsh-watch-voice-companion
+# or, from a checkout:
+npm install /path/to/dsh-watch-voice-companion
 ```
 
 Configure the core once:
