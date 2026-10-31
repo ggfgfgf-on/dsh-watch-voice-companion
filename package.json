@@ -1,0 +1,45 @@
+{
+  "name": "dsh-watch-voice-companion",
+  "version": "0.1.0",
+  "description": "A standalone, engine-optional TTS adapter for dsh-watch-together. Core emits speech events; this package owns synthesis, playback and the serial queue.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./attach": "./src/index.js",
+    "./engines": "./src/engines.js",
+    "./config": "./src/config.js"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check src/index.js && node --check src/engines.js && node --check src/config.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "dsh-watch-together",
+    "tts",
+    "speech",
+    "companion",
+    "edge-tts",
+    "sapi"
+  ],
+  "homepage": "https://github.com/ggfgfgf-on/dsh-watch-voice-companion#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ggfgfgf-on/dsh-watch-voice-companion.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ggfgfgf-on/dsh-watch-voice-companion/issues"
+  },
+  "author": "ggfgfgf-on",
+  "license": "Apache-2.0"
+}
