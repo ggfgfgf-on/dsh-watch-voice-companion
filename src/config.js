@@ -12,8 +12,11 @@ export function dshHome(env = process.env) {
 
 export function expandHome(p, env = process.env) {
   const s = String(p ?? '').trim();
-  if (s === '~') return homedir();
-  if (s.startsWith('~/') || s.startsWith('~\\')) return join(homedir(), s.slice(2));
+  // 显式传入 env 时，~ 必须跟着这份 env 走；否则 DSH_WATCH_VOICE_CONFIG
+  // 指向隔离 home 时，配置仍会从真实用户目录展开。
+  const home = env.USERPROFILE || env.HOME || homedir();
+  if (s === '~') return home;
+  if (s.startsWith('~/') || s.startsWith('~\\')) return join(home, s.slice(2));
   return s;
 }
 

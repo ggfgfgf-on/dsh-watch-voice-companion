@@ -208,7 +208,8 @@ test('resolveEngines falls back in order and respects forced engine', async () =
 });
 
 test('config expands ~ and accepts edge rate strings', async () => {
-  assert.equal(expandHome('~/x', { HOME: 'C:/Users/me' }).endsWith('x'), true);
+  assert.equal(expandHome('~/x', { HOME: 'C:/Users/me' }), join('C:/Users/me', 'x'));
+  assert.equal(expandHome('~\\x', { USERPROFILE: 'C:/Users/me' }), join('C:/Users/me', 'x'));
   assert.equal(edgeRate(0), null);
   assert.equal(edgeRate(2), '+6%');
   assert.equal(edgeRate('-2'), '-6%');
